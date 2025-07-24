@@ -9,5 +9,3 @@ export const Container = styled.main`
   height: 100vh;
   width: 100vw;
 `
-
-export const FormGroup = styled.div``
