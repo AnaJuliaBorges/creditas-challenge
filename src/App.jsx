@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Container } from "./app.styles";
 import { ResultSimulation } from "./components/resultSimulation";
 import { FormSimulation } from "./components/formSimulation";
+import useLoanCalculator from "./hooks/useLoanCalculator";
 
 
 function App() {
@@ -10,6 +11,8 @@ function App() {
     deadline: '',
     birthDate: '',
   })
+
+  const {monthlyPayment, totalAmount, totalInterest} = useLoanCalculator(formData.loanAmount, formData.deadline, formData.birthDate)
 
   return (
     <Container>
@@ -21,10 +24,10 @@ function App() {
       />
 
       <ResultSimulation 
-        total={2500}
-        installments={25}
-        interest={1000}
-        annualRate={25}
+        total={totalAmount}
+        installments={formData.deadline}
+        interest={totalInterest}
+        monthlyPayment={monthlyPayment}
       />
 
     </Container>

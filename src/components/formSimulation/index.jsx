@@ -56,8 +56,6 @@ export const FormSimulation = ({formData, setFormData}) => {
         />
       </FormGroup>
     </div>
-
-    <button type="submit">Simular</button>
   </Form>
   )
 }

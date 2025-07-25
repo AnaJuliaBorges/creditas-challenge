@@ -3,6 +3,15 @@ import styled from "styled-components";
 export const Container = styled.section`
   display: flex;
   flex-direction: column;
+
+  p {
+    font-style: italic;
+    color: #9b9a9aff
+  }
+
+  h2 {
+    padding: 0 0 8px 0;
+  }
 `
 
 export const Table = styled.table`
