@@ -10,12 +10,8 @@ export const FormSimulation = ({formData, setFormData}) => {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-  }
-
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form>
       <FormGroup>
         <label>Data de nascimento:</label>
         <input 

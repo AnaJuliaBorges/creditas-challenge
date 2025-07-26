@@ -1,7 +1,7 @@
 import { formatCurrency } from "../../utils/formatCurrency"
 import { Container, Table } from "./styles"
 
-export const ResultSimulation = ({total, installments, interest, monthlyPayment}) => {
+export const ResultSimulation = ({total, interest, monthlyPayment}) => {
   const hasResult = total > 0
 
   return (
@@ -19,10 +19,6 @@ export const ResultSimulation = ({total, installments, interest, monthlyPayment}
             <tr>
               <td>Valor Parcela</td>
               <td>{formatCurrency(monthlyPayment)}</td>
-            </tr>
-            <tr>
-              <td>Quantidade de parcelas</td>
-              <td>{installments}</td>
             </tr>
             <tr>
               <td>Valor total a ser pago</td>
