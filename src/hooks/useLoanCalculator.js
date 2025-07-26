@@ -35,8 +35,6 @@ const useLoanCalculator = (loanAmount, months, birth) => {
     else if (age <= 60) annualRate = new Decimal(0.02)
     else annualRate = new Decimal(0.04)  
 
-    console.log(annualRate)
-
     return {isValid: true, error: null, monthlyRate: annualRate.dividedBy(12)};
   
   }, [birth])
