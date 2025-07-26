@@ -25,6 +25,14 @@ export const Form = styled.form `
       display: flex;
       gap: 24px
     }
+
+    @media (max-width: 480px) {
+      width: 90vw;
+
+      > :nth-child(2) {
+        flex-direction:column
+      }
+    }
 `
 
 export const FormGroup = styled.div`
@@ -41,4 +49,4 @@ export const FormGroup = styled.div`
     border-radius: 4px;
     border: none ;
   }
-  `
+`

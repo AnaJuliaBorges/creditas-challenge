@@ -12,6 +12,11 @@ export const Container = styled.section`
   h2 {
     padding: 0 0 8px 0;
   }
+
+  @media (max-width: 480px) {
+    width: 90vw;
+  }
+
 `
 
 export const Table = styled.table`

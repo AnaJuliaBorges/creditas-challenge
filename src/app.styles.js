@@ -8,4 +8,10 @@ export const Container = styled.main`
   align-items: center;
   height: 100vh;
   width: 100vw;
+
+  @media (max-width: 480px) {
+    h1 {
+      width: 90vw;
+    }
+  }
 `
