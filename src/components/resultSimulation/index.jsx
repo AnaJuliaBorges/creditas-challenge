@@ -17,11 +17,11 @@ export const ResultSimulation = ({total, interest, monthlyPayment}) => {
           </thead>
           <tbody>
             <tr>
-              <td>Valor Parcela</td>
+              <td>Parcela Mensal</td>
               <td>{formatCurrency(monthlyPayment)}</td>
             </tr>
             <tr>
-              <td>Valor total a ser pago</td>
+              <td>Total a ser pago</td>
               <td>{formatCurrency(total)}</td>
             </tr>
             <tr>
