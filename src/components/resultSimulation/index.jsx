@@ -8,7 +8,7 @@ export const ResultSimulation = ({total, interest, monthlyPayment}) => {
     <Container>
       <h2>Resultado da Simulação</h2>
       {hasResult && 
-        <Table>
+        <Table data-testid='result-table'>
           <thead>
             <tr>
               <th>Nome</th>

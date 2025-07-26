@@ -19,7 +19,7 @@ export const FormSimulation = ({formData, setFormData}) => {
   return (
     <Form>
       <FormGroup>
-        <label>Data de nascimento:</label>
+        <label for="birthDate">Data de nascimento:</label>
         <input 
           type="date"
           id="birthDate"
@@ -32,7 +32,7 @@ export const FormSimulation = ({formData, setFormData}) => {
 
     <div>
       <FormGroup>
-        <label>Prazo (em meses):</label>
+        <label for="deadline">Prazo (em meses):</label>
         <input 
           type="number"
           id="deadline"
@@ -45,7 +45,7 @@ export const FormSimulation = ({formData, setFormData}) => {
       </FormGroup>
 
       <FormGroup>
-        <label>Valor do empréstimo:</label>
+        <label for="loanAmount">Valor do empréstimo:</label>
         <input 
           type="number"
           id="loanAmount"
