@@ -12,7 +12,7 @@ function App() {
     birthDate: '',
   })
 
-  const {monthlyPayment, totalAmount, totalInterest} = useLoanCalculator(formData.loanAmount, formData.deadline, formData.birthDate)
+  const {error, monthlyPayment, totalAmount, totalInterest} = useLoanCalculator(formData.loanAmount, formData.deadline, formData.birthDate)
 
   return (
     <Container>
@@ -24,6 +24,7 @@ function App() {
       />
 
       <ResultSimulation 
+        error={error}
         total={totalAmount}
         installments={formData.deadline}
         interest={totalInterest}

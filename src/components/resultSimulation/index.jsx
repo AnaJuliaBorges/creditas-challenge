@@ -1,7 +1,7 @@
 import { formatCurrency } from "../../utils/formatCurrency"
 import { Container, Table } from "./styles"
 
-export const ResultSimulation = ({total, interest, monthlyPayment}) => {
+export const ResultSimulation = ({error, total, interest, monthlyPayment}) => {
   const hasResult = total > 0
 
   return (
@@ -31,7 +31,7 @@ export const ResultSimulation = ({total, interest, monthlyPayment}) => {
           </tbody>
         </Table>
       }
-      {!hasResult && <p> Preencha todos os campos acima para ver o resultado</p>}
+      {!hasResult && <p data-testid='without-result'> {error || "Preencha todos os campos acima para ver o resultado"} </p>}
     </Container>
   )
 }

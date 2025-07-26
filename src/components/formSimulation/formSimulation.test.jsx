@@ -16,7 +16,6 @@ describe('FormSimulation Component', () => {
   })
 
   it('should render all form fields correctly', () => {
-    console.log({mockSetFormData})
     render(<FormSimulation formData={initialFormData} setFormData={mockSetFormData} />)
     
     expect(screen.getByLabelText('Data de nascimento:')).toBeInTheDocument()

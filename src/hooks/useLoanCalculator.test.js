@@ -88,3 +88,27 @@ describe('useLoanCalculator', () => {
     expect(result.current.totalInterest).toBe(41.67);
   });
 });
+
+describe('useLoanCalculator birthDate validations', () => {
+  it('should return an error for dates in the future', () => {
+    const futureDate = new Date();
+    futureDate.setFullYear(futureDate.getFullYear() + 1);
+    
+    const {result} = renderHook(() => 
+        useLoanCalculator(10000, 12, futureDate.toString())
+    );
+
+    expect(result.current.error).toBe('Data de nascimento no futuro');
+  });
+
+  it('should return an error if age is less than 18', () => {
+    const birthDate = new Date();
+    birthDate.setFullYear(birthDate.getFullYear() - 17);
+    
+    const {result} = renderHook(() => 
+        useLoanCalculator(10000, 12, birthDate.toString())
+    );
+
+    expect(result.current.error).toBe('Idade mínima de 18 anos');
+  });
+});
