@@ -10,6 +10,12 @@ export const FormSimulation = ({formData, setFormData}) => {
     });
   };
 
+  const handleKeyDown = (e) => {
+    if ([110, 188, 190, 69].includes(e.keyCode)) {
+      e.preventDefault();
+    }
+  };
+
   return (
     <Form>
       <FormGroup>
@@ -33,8 +39,7 @@ export const FormSimulation = ({formData, setFormData}) => {
           name="deadline"
           value={formData.deadline}
           onChange={(e) => handleChange((e))}
-          min="1"
-          max="360"
+          onKeyDown={handleKeyDown}
           required
         />
       </FormGroup>
