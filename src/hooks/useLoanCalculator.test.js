@@ -1,5 +1,6 @@
 import { renderHook } from "@testing-library/react";
 import useLoanCalculator from "./useLoanCalculator";
+import { describe, expect, it } from "vitest";
 
 describe('useLoanCalculator', () => {
   it('should calculate correct values for age <= 25', () => {
@@ -7,7 +8,7 @@ describe('useLoanCalculator', () => {
     birthDate.setFullYear(birthDate.getFullYear() - 25);
     
     const {result} = renderHook(() => 
-        useLoanCalculator(10000, 12, birthDate.toString())
+      useLoanCalculator(10000, 12, birthDate.toString())
     );
     
     expect(result.current.monthlyRate).toBeCloseTo(0.004);
@@ -22,7 +23,7 @@ describe('useLoanCalculator', () => {
     birthDate.setFullYear(birthDate.getFullYear() - 26);
     
     const {result} = renderHook(() => 
-        useLoanCalculator(10000, 12, birthDate.toString())
+      useLoanCalculator(10000, 12, birthDate.toString())
     );
     
     expect(result.current.monthlyRate).toBeCloseTo(0.002);
@@ -37,7 +38,7 @@ describe('useLoanCalculator', () => {
     birthDate.setFullYear(birthDate.getFullYear() - 41);
     
     const {result} = renderHook(() => 
-        useLoanCalculator(10000, 12, birthDate.toString())
+      useLoanCalculator(10000, 12, birthDate.toString())
     );
     
     expect(result.current.monthlyRate).toBeCloseTo(0.001);
@@ -52,7 +53,7 @@ describe('useLoanCalculator', () => {
     birthDate.setFullYear(birthDate.getFullYear() - 61);
     
     const {result} = renderHook(() => 
-        useLoanCalculator(10000, 12, birthDate.toString())
+      useLoanCalculator(10000, 12, birthDate.toString())
     );
     
     expect(result.current.monthlyRate).toBeCloseTo(0.003);
@@ -68,7 +69,7 @@ describe('useLoanCalculator', () => {
     birthDate.setFullYear(birthDate.getMonth() + 1);
     
     const {result} = renderHook(() => 
-        useLoanCalculator(10000, 12, birthDate.toString())
+      useLoanCalculator(10000, 12, birthDate.toString())
     );
     
     expect(result.current.monthlyRate).toBeCloseTo(0.004);
@@ -79,7 +80,7 @@ describe('useLoanCalculator', () => {
     birthDate.setFullYear(birthDate.getFullYear() - 25);
     
     const {result} = renderHook(() => 
-        useLoanCalculator(10000, 1, birthDate.toString())
+      useLoanCalculator(10000, 1, birthDate.toString())
     );
     
     expect(result.current.monthlyRate).toBeCloseTo(0.004);
@@ -95,7 +96,7 @@ describe('useLoanCalculator birthDate validations', () => {
     futureDate.setFullYear(futureDate.getFullYear() + 1);
     
     const {result} = renderHook(() => 
-        useLoanCalculator(10000, 12, futureDate.toString())
+      useLoanCalculator(10000, 12, futureDate.toString())
     );
 
     expect(result.current.error).toBe('Data de nascimento no futuro');
@@ -106,7 +107,7 @@ describe('useLoanCalculator birthDate validations', () => {
     birthDate.setFullYear(birthDate.getFullYear() - 17);
     
     const {result} = renderHook(() => 
-        useLoanCalculator(10000, 12, birthDate.toString())
+      useLoanCalculator(10000, 12, birthDate.toString())
     );
 
     expect(result.current.error).toBe('Idade mínima de 18 anos');

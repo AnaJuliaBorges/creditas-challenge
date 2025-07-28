@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react"
 import { ResultSimulation } from "."
+import { describe, expect, it } from "vitest"
 
 describe('ResultSimulation Component', () => {
 

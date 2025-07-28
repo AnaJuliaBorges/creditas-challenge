@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { act } from "react";
 import userEvent from "@testing-library/user-event";
 import App from "../App";
+import { describe, expect, it } from "vitest";
 
 describe('Complete loan simulation flow', () => {
   it('should calculate and display results when filling out the form', async () => {
@@ -13,7 +14,7 @@ describe('Complete loan simulation flow', () => {
       await userEvent.type(screen.getByLabelText('Data de nascimento:'), '1963-01-01');
     });
 
-    expect(await screen.getByTestId('result-table')).toBeInTheDocument();
+    expect(screen.getByTestId('result-table')).toBeInTheDocument();
     expect(await screen.findByText('R$ 851,50')).toBeInTheDocument();
     expect(await screen.findByText('R$ 10.217,99')).toBeInTheDocument();
     expect(await screen.findByText('R$ 217,99')).toBeInTheDocument();
