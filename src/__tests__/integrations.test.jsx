@@ -13,7 +13,7 @@ describe('Complete loan simulation flow', () => {
       await userEvent.type(screen.getByLabelText('Data de nascimento:'), '1963-01-01');
     });
 
-    expect(await screen.queryByTestId('result-table')).toBeInTheDocument();
+    expect(await screen.getByTestId('result-table')).toBeInTheDocument();
     expect(await screen.findByText('R$ 851,50')).toBeInTheDocument();
     expect(await screen.findByText('R$ 10.217,99')).toBeInTheDocument();
     expect(await screen.findByText('R$ 217,99')).toBeInTheDocument();
@@ -22,18 +22,18 @@ describe('Complete loan simulation flow', () => {
   it('should display a message until all inputs are filled in', async () => {
     render(<App />)
 
-    expect(await screen.queryByTestId('result-table')).not.toBeInTheDocument();
+    expect(screen.queryByTestId('result-table')).not.toBeInTheDocument();
 
     await userEvent.type(screen.getByLabelText('Data de nascimento:'), '1963-01-01');
-    expect(screen.queryByTestId('without-result')).toBeInTheDocument()
+    expect(screen.getByTestId('without-result')).toBeInTheDocument()
     
     await userEvent.type(screen.getByLabelText('Valor do empréstimo:'), '10000');
-    expect(screen.queryByTestId('without-result')).toBeInTheDocument()
+    expect(screen.getByTestId('without-result')).toBeInTheDocument()
     
     await userEvent.type(screen.getByLabelText('Prazo (em meses):'), '12');
     expect(screen.queryByTestId('without-result')).not.toBeInTheDocument()
 
-    expect(await screen.queryByTestId('result-table')).toBeInTheDocument();
+    expect(screen.getByTestId('result-table')).toBeInTheDocument();
 
   });
 });

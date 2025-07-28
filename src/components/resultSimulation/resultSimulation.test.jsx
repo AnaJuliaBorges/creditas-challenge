@@ -18,7 +18,7 @@ describe('ResultSimulation Component', () => {
 
     render(<ResultSimulation {...resultProps} />)
 
-    expect(screen.queryByTestId('result-table')).toBeInTheDocument()
+    expect(screen.getByTestId('result-table')).toBeInTheDocument()
 
     expect(screen.getByText('Nome')).toBeInTheDocument()
     expect(screen.getByText('Valor')).toBeInTheDocument()
